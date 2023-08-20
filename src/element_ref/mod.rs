@@ -23,6 +23,10 @@ impl<'a> ElementRef<'a> {
         ElementRef { node }
     }
 
+    pub fn node_id(&self) -> usize {
+        self.node.id()
+    }
+
     /// Wraps a `NodeRef` only if it references a `Node::Element`.
     pub fn wrap(node: NodeRef<'a, Node>) -> Option<Self> {
         if node.value().is_element() {
