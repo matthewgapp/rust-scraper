@@ -3,7 +3,7 @@
 use std::ops::Deref;
 
 use ego_tree::iter::{Edge, Traverse};
-use ego_tree::NodeRef;
+use ego_tree::{NodeId, NodeRef};
 use html5ever::serialize::{serialize, SerializeOpts, TraversalScope};
 
 use crate::node::Element;
@@ -23,7 +23,8 @@ impl<'a> ElementRef<'a> {
         ElementRef { node }
     }
 
-    pub fn node_id(&self) -> usize {
+    /// Returns the underlying `NodeId` from the html5ever crate of the referenced element.
+    pub fn node_id(&self) -> NodeId {
         self.node.id()
     }
 
